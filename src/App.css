@@ -1,0 +1,241 @@
+.dark-mode{
+  --primary: #9b9ba2;
+  --bg-color: #2b2a33;
+  --bg-form: #42414d;
+  --shadow:  rgb(9, 27, 36);
+}
+.light-mode{
+  --primary: #5454e9;
+  --bg-color: #fdfdfd;
+  --bg-form: #f6f7f9;
+  --shadow:  #d0d0d0;
+}
+:focus{
+  outline: none;
+}
+html,body{
+  margin: 0;
+  padding: 0;
+}
+.app-container{
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  position: relative;
+}
+.theme-switch{
+  position: absolute;
+  top: 40px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+}
+.theme-switch span{
+  border-radius: 5px;
+  border: 2px solid var(--primary);
+  padding: 5px 5px;
+  width: 80px;
+  height: 20px;
+  margin: 10px;
+  font-size: 10px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  font-weight: 600;
+}
+.theme-switch span:hover{
+  cursor: pointer;
+}
+.fa-icon{
+    color: var(--primary);
+    font-size: 20px;
+    cursor: pointer;
+  }
+.fa-icon:nth-child(2){
+    margin-left: 20px;
+}
+.form-container{
+  width: 300px;
+  height: 400px;
+  border: 1px solid var(--shadow);
+  background: var(--bg-form);
+  box-shadow: 0 0 15px var(--shadow);
+  padding: 40px 40px;
+  border-radius: 20px;
+}
+.form-caption{
+  font-family: sans-serif;
+  font-size: 25px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 60px;
+  position: relative;
+}
+.form-caption::before{
+  content: '';
+  width: 10%;
+  position: absolute;
+  border-bottom: 4px solid var(--primary);
+  top: 0;
+  left: 0;
+  bottom: -10px;
+  border-radius: 2px;
+}
+.form-input{
+  position: relative;
+}
+.form-input label{
+  font-family: sans-serif;
+  font-weight: 500;
+  padding: 2px 2px;
+  font-size: 14px;
+  color: var(--primary);
+  position: absolute;
+  pointer-events: none;
+  top: 10px;
+  left: 15px;
+  background: var(--bg-form);
+  transition: .5s;
+}
+.form-input > input[type="text"],
+.form-input > input[type="password"]{
+  width: 94%;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  background: transparent;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: var(--primary);
+  padding-left: 15px;
+  transition: .5s;
+}
+.form-input:nth-child(1){
+  margin-bottom: 30px;
+}
+.form-input > input[type="text"]:focus ~ label,
+.form-input > input[type="password"]:focus ~ label,
+.form-input > input[type="text"]:valid ~ label,
+.form-input > input[type="password"]:valid ~ label{
+  transform: translateY(-20px);
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.checkbox div{
+  font-size: 14px;
+  color: var(--primary);
+  font-family: sans-serif;
+  font-weight: normal;
+}
+.checkbox div > input[type="checkbox"]{
+  display: none;
+}
+.checkmarker::before{
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  width: 3px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  z-index: 2;
+  display: none;
+}
+.checkmarker::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  background: var(--primary);
+}
+.checkbox div > input[type="checkbox"]:checked ~
+.checkmarker::before{
+  display: block;
+}
+.checkbox > div > label{
+  margin-left: 25px;
+  cursor: pointer;
+}
+.button{
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.button button{
+  padding: 10px 20px;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  font-family: sans-serif;
+  background: var(--primary);
+  border-radius: 5px;
+  color: #fff;
+  font-weight: normal;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.button button::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(135deg,
+                              var(--primary) 10%,
+                              var(--primary) 20%,
+                              #f1f1f1 50%,
+                              var(--primary) 70%,
+                              var(--primary) 100%);
+  transition: .5s;
+}
+.button button:hover::before{
+  left: 100%;
+}
+.hr{
+  line-height: 1px;
+  color: var(--primary);
+  margin: 20px 0;
+}
+.signup-container{
+  width: 100%;
+  text-align: center;
+}
+.signup-container label{
+  font-size: 14px;
+  color: var(--primary);
+  font-family: sans-serif;
+  font-weight: normal;
+}
+.signup-container a{
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: var(--primary);
+}
+.signup-container a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
